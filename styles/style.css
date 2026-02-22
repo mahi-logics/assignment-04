@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #EEF4FF;
+}
+
+.job-card{
+    width: 75%;
+    margin: 20px auto;
+    padding: 24px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+}
+
+.card-headline{
+    display: flex;
+    justify-content: space-between;
+}
+
+.company-name{
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.job-title{
+    color: #64748B;
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.job-type-salary, .job-description{
+    color: #64748B;
+    font-size: 0.86rem;
+    margin-bottom: 1.25rem;
+}
+
+.job-level{
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    padding: 8px 12px;
+    background-color: #EEF4FF;
+    width: 113px;
+    border-radius: 5px;
+}
+
+.green-btn, .red-btn{
+    color: #10B981;
+    background-color: transparent;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 8px 12px;
+    border: 1px solid #10B981;
+    border-radius: 5px;
+    margin-right: 8px;
+}
+
+.red-btn{
+    color: #EF4444;
+    border: 1px solid #EF4444;
+}
+
+.green-btn:hover{
+    background-color: #10B981;
+    color: white;
+}
+
+.red-btn:hover{
+    background-color: #EF4444;
+    color: white;
+}
