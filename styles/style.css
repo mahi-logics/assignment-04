@@ -14,6 +14,7 @@ body{
     padding: 24px;
     background-color: #FFFFFF;
     border-radius: 10px;
+    margin-bottom: 1rem;
 }
 
 .card-headline{
@@ -40,7 +41,7 @@ body{
 }
 
 .job-level{
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 600;
     margin-bottom: 1rem;
     padding: 8px 12px;
