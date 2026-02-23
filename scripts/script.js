@@ -3,7 +3,7 @@ const allJobs = [{
     companyName: "Mobile First Corp",
     jobTitle: "React Native Developer",
     jobTypeSalary: "Remote • Full-time • $130,000 - $175,000",
-    jobLevel: "NOT APPIED",
+    jobLevel: "NOT APPLIED",
     jobDescription: "Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.",
     greenBtn: "INTERVIEW",
     redBtn: "REJECTED"
@@ -12,7 +12,7 @@ const allJobs = [{
     companyName: "WebFlow Agency",
     jobTitle: "Web Designer & Developer",
     jobTypeSalary: "Los Angeles, CA • Part-time • $80,000 - $120,000",
-    jobLevel: "NOT APPIED",
+    jobLevel: "NOT APPLIED",
     jobDescription: "Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends.",
     greenBtn: "INTERVIEW",
     redBtn: "REJECTED"
@@ -21,14 +21,95 @@ const allJobs = [{
     companyName: "DataViz Solutions",
     jobTitle: "Data Visualization Specialist",
     jobTypeSalary: "Boston, MA • Full-time • $125,000 - $165,000",
-    jobLevel: "NOT APPIED",
+    jobLevel: "NOT APPLIED",
     jobDescription: "Transform complex data into compelling visualizations. Required skills: D3.js, React, and strong analytical thinking.",
     greenBtn: "INTERVIEW",
     redBtn: "REJECTED"
-}];
+}, {
+    id: 4,
+    companyName: "CloudFirst Inc",
+    jobTitle: "Backend Developer",
+    jobTypeSalary: "Seattle, WA • Full-time • $140,000 - $190,000",
+    jobLevel: "NOT APPLIED",
+    jobDescription: "Design and maintain scalable backend systems using Python and AWS. Work with modern DevOps practices and cloud infrastructure.",
+    greenBtn: "INTERVIEW",
+    redBtn: "REJECTED"
+}, {
+    id: 5,
+    companyName: "Innovation Labs",
+    jobTitle: "UI/UX Engineer",
+    jobTypeSalary: "Austin, TX • Full-time • $110,000 - $150,000",
+    jobLevel: "NOT APPLIED",
+    jobDescription: "Create beautiful and functional user interfaces for our suite of products. Strong design skills and frontend development expertise required.",
+    greenBtn: "INTERVIEW",
+    redBtn: "REJECTED"
+}, {
+    id: 6,
+    companyName: "MegaCorp Solutions",
+    jobTitle: "JavaScript Developer",
+    jobTypeSalary: "New York, NY • Full-time • $130,000 - $170,00",
+    jobLevel: "NOT APPLIED",
+    jobDescription: "Build enterprise applications with JavaScript and modern frameworks. We offer competitive compensation, health insurance, and professional development opportunities.",
+    greenBtn: "INTERVIEW",
+    redBtn: "REJECTED"
+}, {
+    id: 7,
+    companyName: "StartupXYZ",
+    jobTitle: "Full Stack Engineer",
+    jobTypeSalary: "Remote • Full-time • $120,000 - $160,000",
+    jobLevel: "NOT APPLIED",
+    jobDescription: "Join our fast-growing startup and work on our core platform. Experience with Node.js and React required. Great benefits and equity package included.",
+    greenBtn: "INTERVIEW",
+    redBtn: "REJECTED"
+}, {
+    id: 8,
+    companyName: "TechCorp Industries",
+    jobTitle: "Senior Frontend Developer",
+    jobTypeSalary: "San Francisco, CA • Full-time • $130,000 - $175,000",
+    jobLevel: "NOT APPLIED",
+    jobDescription: "We are looking for an experienced Frontend Developer to build scalable web applications using React and TypeScript. You will work with a talented team on cutting-edge projects.",
+    greenBtn: "INTERVIEW",
+    redBtn: "REJECTED"
+}
+];
 
 
 const jobCardsSection = document.getElementById('job-cards-section');
+
+
+// counter
+const totalCounter = document.getElementById("total-counter");
+const interviewCounter = document.getElementById("interview-counter");
+const rejectedCounter = document.getElementById("rejected-counter");
+// avaiable jobs
+const interRejectDisplay = document.getElementById("inter-reject-display");
+const intRejDisplay = document.getElementById("intrej-display");
+const avaiableJobs = document.getElementById("available");
+
+function counter() {
+    interviewCounter.innerText = 0;
+    rejectedCounter.innerText = 0;
+
+    for (const card of allJobs) {
+        const level = card.jobLevel;
+        if (level === "INTERVIEW") {
+            interviewCounter.innerText++;
+        } else if (level === "REJECTED") {
+            rejectedCounter.innerText++;
+        }
+    }
+    
+    totalCounter.innerText = allJobs.length;
+
+
+    avaiableJobs.innerText = totalCounter.innerText;
+}
+
+totalCounter.innerText = allJobs.length;
+
+avaiableJobs.innerText = allJobs.length;
+
+
 
 
 // Interview section
@@ -53,6 +134,9 @@ function interview() {
     allBtn.classList.remove("blue");
     rejectedBtn.classList.remove("blue");
 
+    interRejectDisplay.classList.remove("none");
+    intRejDisplay.innerText = interviewJobs.length;
+
     dynamicCard(interviewJobs);
 
     noJobShow();
@@ -69,6 +153,8 @@ function alll() {
     interviewBtn.classList.remove("blue");
     allBtn.classList.add("blue");
     rejectedBtn.classList.remove("blue");
+
+    interRejectDisplay.classList.add("none");
 
     dynamicCard(allJobs);
     noJobShow();
@@ -94,11 +180,16 @@ function rejected() {
     allBtn.classList.remove("blue");
     rejectedBtn.classList.add("blue");
 
+    interRejectDisplay.classList.remove("none");
+    intRejDisplay.innerText = rejectedJobs.length;
+
     dynamicCard(rejectedJobs);
 
     noJobShow();
 
-}    
+    rejectedCounter.innerText = rejectedJobs.length;
+}  
+
 
 
 
@@ -221,6 +312,7 @@ jobCardsSection.addEventListener("click", (event) => {
         } else if (section === "Interview") {
             interview();
         }
+        counter();
     } else if (btn === "red-btn") {
         allJobs[index].jobLevel = "REJECTED";
         if (section === "All") {
@@ -230,6 +322,7 @@ jobCardsSection.addEventListener("click", (event) => {
         } else if (section === "Interview") {
             interview();
         }
+        counter();
     }
 })
 
@@ -248,6 +341,8 @@ jobCardsSection.addEventListener("click", (event) => {
         } else if (section === "Interview") {
             interview();
         }
+
+        counter();
     }
 })
 
@@ -276,6 +371,11 @@ function noJobShow() {
     }
 
 }
+
+
+
+
+
 
 
 

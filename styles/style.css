@@ -1,11 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Geist", sans-serif;
 }
 
 body{
     background-color: #EEF4FF;
+}
+
+/* desh board */
+.desh-board{
+    width: 75%;
+    margin: 20px auto;
+
+}
+
+.desh-board h1{
+    margin-bottom: 30px;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.desh-card-container{
+    display: flex;
+    gap: 1rem;
+}
+
+.desh-card{
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    flex-grow: 1;
+}
+
+.desh-card p{
+    margin-bottom: 0.5rem;
+    color: #64748B;
+}
+
+.desh-card h5{
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+/* Available Section */
+#available-jobs{
+    width: 75%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+#available-jobs h3{
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #002C5C;
+}
+
+#available-jobs p{
+    color: #64748B;
 }
 
 .btn-section{

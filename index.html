@@ -9,6 +9,37 @@
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
+    <!-- DeshBoard -->
+    
+    <section class="desh-board">
+        <h1> Job Application Tracker</h1>
+        <div class="desh-card-container">
+            <div class="desh-card">
+                <p>Total</p>
+                <h5 id="total-counter">0</h5>
+            </div>
+            <div class="desh-card">
+                <p>Interview</p>
+                <h5 id="interview-counter" style="color: #10B981;">0</h5>
+            </div>
+            <div class="desh-card">
+                <p >Rejected</p>
+                <h5 id="rejected-counter" style="color: #EF4444">0</h5>
+            </div>
+        </div>
+        <hr style="margin: 30px 0; opacity: 0.4;">
+    </section>
+
+    <!-- Avaliavle Section -->
+    <section id="available-jobs">
+        <h3>Available Jobs</h3>
+        <p>
+            <span id="inter-reject-display" class="none">
+                <span id="intrej-display">0</span>
+                <span>of</span>
+            </span>
+            <span id="available">0</span> Jobs</p>
+    </section>
 
     <section id="btn-section" class="btn-section">
         <button id="all-btn" class="btn blue"  onclick="alll()">All</button>
