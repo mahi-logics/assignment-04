@@ -13,6 +13,11 @@
     justify-content: space-between;
 }
 
+.card-headline img{
+    cursor: pointer;
+    width: 15px;
+}
+
 .company-name{
     font-size: 1.2rem;
     font-weight: 600;

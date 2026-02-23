@@ -30,9 +30,81 @@ const allJobs = [{
 
 const jobCardsSection = document.getElementById('job-cards-section');
 
+
+// Interview section
+let section = "All";
+
+const interviewBtn = document.getElementById("interview-btn");
+
+const interviewJobs = [];
+
+function interview() {
+    interviewJobs.length = 0;
+    for (let i = 0; i < allJobs.length; i++){
+        const a = allJobs[i];
+        if (a.jobLevel === "INTERVIEW") {
+            interviewJobs.push(a);
+        }
+    }
+
+    section = interviewBtn.innerText;
+    
+    interviewBtn.classList.add("blue");
+    allBtn.classList.remove("blue");
+    rejectedBtn.classList.remove("blue");
+
+    dynamicCard(interviewJobs);
+
+    noJobShow();
+
+}
+
+// All section
+
+const allBtn = document.getElementById("all-btn");
+
+function alll() {
+    section = allBtn.innerText;
+
+    interviewBtn.classList.remove("blue");
+    allBtn.classList.add("blue");
+    rejectedBtn.classList.remove("blue");
+
+    dynamicCard(allJobs);
+    noJobShow();
+}
+
+// rejected btn
+
+const rejectedBtn = document.getElementById("rejected-btn");
+
+const rejectedJobs = [];
+
+function rejected() {
+    rejectedJobs.length = 0;
+    for (const a of allJobs) {
+        if (a.jobLevel === "REJECTED") {
+            rejectedJobs.push(a);
+        }
+    }
+
+    section = rejectedBtn.innerText;
+
+    interviewBtn.classList.remove("blue");
+    allBtn.classList.remove("blue");
+    rejectedBtn.classList.add("blue");
+
+    dynamicCard(rejectedJobs);
+
+    noJobShow();
+
+}    
+
+
+
 // Making Job Card
 
-function dynamicCard() {
+function dynamicCard(allJobs) {
 
     jobCardsSection.innerHTML = "";
 
@@ -72,6 +144,7 @@ function dynamicCard() {
 
         const deleteIcon = document.createElement("img");
         deleteIcon.setAttribute("src", "resourses/Vector.png");
+        deleteIcon.setAttribute("data-id", `${jobInfo.id}`)
         deleteIconContainer.appendChild(deleteIcon);
 
 
@@ -126,7 +199,11 @@ function dynamicCard() {
     }
 }
 
-dynamicCard();
+dynamicCard(allJobs);
+
+
+
+
 
 
 // interview btn
@@ -137,12 +214,68 @@ jobCardsSection.addEventListener("click", (event) => {
     
     if (btn === "green-btn") {
         allJobs[index].jobLevel = "INTERVIEW";
-        dynamicCard();
+        if (section === "All") {
+            dynamicCard(allJobs);
+        } else if (section === "Rejected") {
+            rejected();
+        } else if (section === "Interview") {
+            interview();
+        }
     } else if (btn === "red-btn") {
         allJobs[index].jobLevel = "REJECTED";
-        dynamicCard();
+        if (section === "All") {
+            dynamicCard(allJobs);
+        } else if (section === "Rejected") {
+            rejected();
+        } else if (section === "Interview") {
+            interview();
+        }
     }
 })
+
+
+// delete icon
+jobCardsSection.addEventListener("click", (event) => {
+    const id = Number(event.target.dataset.id);
+    const index = allJobs.findIndex(obj => obj.id === id);
+
+    if (event.target.tagName === "IMG") {
+        allJobs.splice(index, 1);
+        if (section === "All") {
+            alll();
+        } else if (section === "Rejected") {
+            rejected();
+        } else if (section === "Interview") {
+            interview();
+        }
+    }
+})
+
+
+// NoJobSection
+function noJobShow() {
+
+    if (section === "All") {
+        if (allJobs.length === 0) {
+            document.getElementById("no-job").classList.remove("none");
+        } else {
+            document.getElementById("no-job").classList.add("none");
+        }
+    } else if (section === "Rejected" ) {
+        if (rejectedJobs.length === 0 ) {
+            document.getElementById("no-job").classList.remove("none");
+        } else {
+            document.getElementById("no-job").classList.add("none");
+        }
+    } else if (section === "Interview" ) {
+        if (interviewJobs.length === 0) {
+            document.getElementById("no-job").classList.remove("none");
+        } else {
+            document.getElementById("no-job").classList.add("none");
+        }
+    }
+
+}
 
 
 

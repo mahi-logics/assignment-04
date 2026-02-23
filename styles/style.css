@@ -31,3 +31,34 @@ body{
     color: white;
     background-color: #3B82F6;
 }
+
+
+/* NO Job section */
+.no-job-container{
+    background-color: white;
+    width: 75%;
+    margin:  20px auto;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.no-job{
+    width: 60%;
+    margin: 0 auto;
+    padding: 70px 0;
+}
+
+.no-job h2{
+    color: #002C5C;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 5px;
+}
+
+.no-job p{
+    color: #64748B;
+}
+
+.none{
+    display: none;
+}

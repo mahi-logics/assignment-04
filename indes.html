@@ -10,13 +10,21 @@
 </head>
 <body>
 
-    <section class="btn-section">
-        <button class="btn blue">All</button>
-        <button class="btn">Interview</button>
-        <button class="btn">Rejected</button>
+    <section id="btn-section" class="btn-section">
+        <button id="all-btn" class="btn blue"  onclick="alll()">All</button>
+        <button id="interview-btn" class="btn" onclick="interview()">Interview</button>
+        <button id="rejected-btn" class="btn" onclick="rejected()">Rejected</button>
     </section>
 
     <section id="job-cards-section">
+    </section>
+
+    <section id="no-job" class="no-job-container none">
+        <div class="no-job">
+            <img src="resourses/jobs.png" alt="">
+            <h2>No jobs available</h2>
+            <p>Check back soon for new job opportunities</p>
+        </div>
     </section>
 
 
